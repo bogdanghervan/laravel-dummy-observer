@@ -1,0 +1,35 @@
+{
+    "name": "bogdan/laravel-dummy-observer",
+    "description": "Mock Eloquent model save and make assertions on saved data",
+    "keywords": ["laravel", "phpunit", "testing", "mock", "eloquent"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bogdan Ghervan",
+            "email": "bogdan.ghervan@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "phpunit/phpunit": "^9.5",
+        "illuminate/database": ">=5.3"
+    },
+    "require-dev": {
+        "dms/phpunit-arraysubset-asserts": "^0.2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "BogdanGhervan\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/bogdanghervan/laravel-dummy-observer/issues",
+        "source": "https://github.com/bogdanghervan/laravel-dummy-observer"
+    }
+}
