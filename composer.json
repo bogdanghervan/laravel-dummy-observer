@@ -1,5 +1,5 @@
 {
-    "name": "bogdan/laravel-dummy-observer",
+    "name": "bogdanghervan/laravel-dummy-observer",
     "description": "Mock Eloquent model save and make assertions on saved data",
     "keywords": ["laravel", "phpunit", "testing", "mock", "eloquent"],
     "type": "library",
