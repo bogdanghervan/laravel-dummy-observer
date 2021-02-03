@@ -13,9 +13,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "phpunit/phpunit": "^9.5",
-        "illuminate/database": ">=5.3"
-    },
-    "require-dev": {
+        "illuminate/database": ">=5.3",
         "dms/phpunit-arraysubset-asserts": "^0.2.1"
     },
     "autoload": {
