@@ -182,7 +182,7 @@ Has this just helped you in a pinch when you tried to mock the Eloquent save met
 
 Have you found a problem? [Submit an issue](https://github.com/bogdanghervan/laravel-dummy-observer/issues)
 
-I myself have been inspired by the work done by [@timacdonald](https://github.com/timacdonald) on [timacdonald/log-fake](/https://github.com/timacdonald/log-fake) whom I'd like to thank!
+I myself have been inspired by the work done by [@timacdonald](https://github.com/timacdonald) on [timacdonald/log-fake](https://github.com/timacdonald/log-fake) whom I'd like to thank!
 
 ## Contributing
 
