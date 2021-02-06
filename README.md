@@ -106,7 +106,7 @@ DummyObserver::assertSavedAttributes([
 ]);
 ```
 
-It's possible to verify that only a subset of the attributes was saved.
+It's possible to verify that only a relevant subset of the attributes was saved.
 ```PHP
 Flight::observe(DummyObserver::class);
 
