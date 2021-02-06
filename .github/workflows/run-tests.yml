@@ -1,0 +1,42 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      COMPOSER_NO_INTERACTION: 1
+
+    strategy:
+      matrix:
+        php: [7.1, 7.2, 7.3, 7.4, 8.0]
+        eloquent: [5.3.*, 5.4.*, 5.5.*, 5.6.*, 7.*, 8.*]
+        phpunit: ['^9.0']
+        dependency-version: [prefer-lowest, prefer-stable]
+
+    name: 'PHP: ${{ matrix.php }}; Eloquent: ${{ matrix.eloquent }}; PHPUnit: ${{ matrix.phpunit}}; Dependency version: ${{ matrix.dependency-version }}'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        coverage: xdebug
+        tools: composer:v2
+
+    - name: Install dependencies
+      run: |
+        composer require "illuminate/database:${{ matrix.eloquent }}" "phpunit/phpunit:${{ matrix.phpunit }}" --no-interaction --no-update
+        composer update --${{ matrix.dependency-version }} --prefer-dist --no-progress --no-suggest
+
+    - name: Run unit tests
+      run: ./vendor/bin/phpunit --debug --verbose
