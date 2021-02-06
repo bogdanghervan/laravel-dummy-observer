@@ -32,6 +32,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Flight extends Model
 {
+    protected $fillable = [
+        'departure',
+        'destination',
+        'status'
+    ];
+
     public function landed()
     {
         $this->status = 'landed';
@@ -66,7 +72,7 @@ class FlightTest extends TestCase
         DummyObserver::clear();
     }
 
-    protected function testLanded(): void
+    public function testLanded(): void
     {
         $flight = new Flight([
             'departure' => 'Bucharest',
