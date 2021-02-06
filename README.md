@@ -12,7 +12,7 @@ A purpose-built model observer that can be registered with an Eloquent model to 
 
 ### Installation
 
-Install it via Composer
+Install it via Composer:
 ```
 composer require --dev bogdanghervan/laravel-dummy-observer
 ```
@@ -104,7 +104,7 @@ DummyObserver::assertSavedAttributes([
 ]);
 ```
 
-It is possible to verify only a subset of the attributes being saved.
+It's possible to verify that only a subset of the attributes was saved.
 ```PHP
 Flight::observe(DummyObserver::class);
 
@@ -163,7 +163,7 @@ $flight->update([
 DummyObserver::assertSavedTimes(2);
 ```
 
-### assertNothingSaved
+### assertNothingSaved()
 
 Make an assertion the model hasn't been saved.
 ```PHP
