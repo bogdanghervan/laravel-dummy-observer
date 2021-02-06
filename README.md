@@ -16,7 +16,7 @@ Laravel ≥ 5.3
 
 Install it via Composer
 ```
-composer require bogdanghervan/laravel-dummy-observer
+composer require --dev bogdanghervan/laravel-dummy-observer
 ```
 
 ## Usage
