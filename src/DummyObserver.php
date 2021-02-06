@@ -45,7 +45,7 @@ class DummyObserver
     {
         $actual = array_shift(self::$storage);
         
-        self::assertArraySubset($expected, $actual, true);
+        self::assertArraySubset($expected, $actual ?: [], true);
     }
     
     /**
