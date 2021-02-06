@@ -2,6 +2,8 @@
 
 A purpose-built model observer that can be registered with an Eloquent model to intercept all attempted saves and perform assertions on the data. The data being saved never reaches the database.
 
+![Tests](https://github.com/bogdanghervan/laravel-dummy-observer/workflows/Run%20Tests/badge.svg)
+
 ## Installation
 
 ### Requirements
