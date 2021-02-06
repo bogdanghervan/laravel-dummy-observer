@@ -6,11 +6,9 @@ A purpose-built model observer that can registered with an Eloquent model to int
 
 ### Requirements
 
-PHP ≥ 7.3
-
-PHPUnit ≥ 9.5
-
-Laravel ≥ 5.3
+* PHP ≥ 7.3
+* PHPUnit ≥ 9.5
+* Laravel ≥ 5.3
 
 ### Installation
 
