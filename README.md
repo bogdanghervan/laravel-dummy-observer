@@ -19,7 +19,7 @@ composer require --dev bogdanghervan/laravel-dummy-observer
 
 ## Usage
 
-Let's assume we'd like to test a method called `landed` on a model called `Flight`. This method would update the flight's status by calling `save` internally. 
+Let's assume we'd like to test a method named `landed` on a model called `Flight`. This method would update the flight's status by invoking `save` internally. 
 
 ```PHP
 <?php
