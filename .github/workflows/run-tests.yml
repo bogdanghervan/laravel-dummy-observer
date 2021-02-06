@@ -15,12 +15,19 @@ jobs:
 
     strategy:
       matrix:
-        php: [7.1, 7.2, 7.3, 7.4, 8.0]
+        php: [7.3, 7.4, 8.0]
         eloquent: [5.3.*, 5.4.*, 5.5.*, 5.6.*, 7.*, 8.*]
-        phpunit: ['^9.0']
         dependency-version: [prefer-lowest, prefer-stable]
+        exclude:
+          - php: 8.0
+            eloquent: 5.6.*
+          - php: 8.0
+            eloquent: 5.7.*
+          - php: 8.0
+            eloquent: 5.8.*
+            
 
-    name: 'PHP: ${{ matrix.php }}; Eloquent: ${{ matrix.eloquent }}; PHPUnit: ${{ matrix.phpunit}}; Dependency version: ${{ matrix.dependency-version }}'
+    name: 'PHP: ${{ matrix.php }}; Eloquent: ${{ matrix.eloquent }}; Dependency version: ${{ matrix.dependency-version }}'
 
     steps:
     - name: Checkout code
@@ -35,8 +42,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        composer require "illuminate/database:${{ matrix.eloquent }}" "phpunit/phpunit:${{ matrix.phpunit }}" --no-interaction --no-update
+        composer require "illuminate/database:${{ matrix.eloquent }}" --no-interaction --no-update
         composer update --${{ matrix.dependency-version }} --prefer-dist --no-progress --no-suggest
 
     - name: Run unit tests
-      run: ./vendor/bin/phpunit --debug --verbose
+      run: ./vendor/bin/phpunit --testdox ./tests

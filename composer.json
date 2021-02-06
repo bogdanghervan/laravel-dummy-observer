@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^9.0",
         "illuminate/database": ">=5.3",
         "dms/phpunit-arraysubset-asserts": "^0.2.1"
     },

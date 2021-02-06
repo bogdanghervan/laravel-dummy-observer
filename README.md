@@ -7,8 +7,8 @@ A purpose-built model observer that can be registered with an Eloquent model to 
 ### Requirements
 
 * PHP ≥ 7.3
-* PHPUnit ≥ 9.5
-* Laravel ≥ 5.3
+* PHPUnit ≥ 9.0
+* Laravel Eloquent ≥ 5.3
 
 ### Installation
 
