@@ -63,6 +63,17 @@ class DummyObserver
     }
     
     /**
+     * @return void
+     */
+    public static function assertNothingSaved(): void
+    {
+        PHPUnit::assertTrue(
+            ($count = self::$callCount) === 0,
+            sprintf("Save was triggered {$count} times instead of 0 times.")
+        );
+    }
+    
+    /**
      * Get how many times save was called.
      * 
      * @return int
