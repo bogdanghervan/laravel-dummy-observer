@@ -44,7 +44,6 @@ class Flight extends Model
         $this->save();
     }
 }
-
 ```
 
 This is how a unit test could look like:
@@ -90,6 +89,93 @@ class FlightTest extends TestCase
 }
 ```
 
+## Available assertions
+
+### assertSavedAttributes($attributes)
+
+Verify that expected attributes are saved.
+```PHP
+Flight::observe(DummyObserver::class);
+
+$flight = Flight::create([
+    'passenger' => 'John Smith'
+]);
+
+DummyObserver::assertSavedAttributes([
+    'passenger' => 'John Smith'
+]);
+```
+
+It is possible to verify only a subset of the attributes being saved.
+```PHP
+Flight::observe(DummyObserver::class);
+
+$flight = Flight::create([
+    'passenger' => 'John Smith',
+    'departure' => 'Bucharest',
+    'destination' => 'New York',
+    'status' => 'boarded'
+]);
+
+DummyObserver::assertSavedAttributes([
+    'passenger' => 'John Smith',
+    'status' => 'boarded'
+]);
+```
+
+We can make multiple assertions if consecutive saves are being made in the code being tested. Just make sure to specify them in the same order.
+```PHP
+Flight::observe(DummyObserver::class);
+
+$flight = Flight::create([
+    'departure' => 'Bucharest',
+    'destination' => 'New York'
+]);
+
+$flight->update([
+    'status' => 'boarded',
+    'gate' => 'A1'
+]);
+
+DummyObserver::assertSavedAttributes([
+    'destination' => 'New York'
+]);
+DummyObserver::assertSavedAttributes([
+    'status' => 'boarded',
+    'gate' => 'A1'
+]);
+```
+
+### assertSavedTimes($times = 1)
+
+Make an assertion on the number of times a model has been saved.
+```PHP
+Flight::observe(DummyObserver::class);
+
+$flight = Flight::create([
+    'departure' => 'Bucharest',
+    'destination' => 'New York'
+]);
+
+$flight->update([
+    'status' => 'boarded',
+    'gate' => 'A1'
+]);
+
+DummyObserver::assertSavedTimes(2);
+```
+
+### assertNothingSaved
+
+Make an assertion the model hasn't been saved.
+```PHP
+Flight::observe(DummyObserver::class);
+
+$flight = new Flight();
+
+DummyObserver::assertNothingSaved();
+```
+
 ## Support
 
 Has this just helped you in a pinch when you tried to mock the Eloquent save method and nothing was working? Consider leaving me a note and buying me a coffee by clicking the button below.
@@ -100,7 +186,7 @@ Have you found a problem? [Submit an issue](https://github.com/bogdanghervan/lar
 
 ## Contributing
 
-Pull requests are welcome. All contributions should follow the PSR-2 coding standard and should be followed by passing tests.
+Pull requests are welcome. All contributions should follow the PSR-2 coding standard and should be accompanied by passing tests.
 
 ## License
 
