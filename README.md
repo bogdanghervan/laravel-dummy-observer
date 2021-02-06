@@ -186,7 +186,7 @@ protected function tearDown(): void
 
 ## Limitations
 
-When working with multiple models, it is not possible to assert a save against the model where the save originated.
+When working with multiple models, it is not possible to assert a save against the model where the save originated. See issue bogdanghervan/laravel-dummy-observer#1 for more details.
 
 ## Support
 
