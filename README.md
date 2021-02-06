@@ -21,7 +21,7 @@ composer require --dev bogdanghervan/laravel-dummy-observer
 
 ## Usage
 
-Let's assume we'd like to test a method called `landed` on a `Flight` model. This method would update the flight's status by calling `save` internally. 
+Let's assume we'd like to test a method called `landed` on a model called `Flight`. This method would update the flight's status by calling `save` internally. 
 
 ```PHP
 <?php
@@ -32,7 +32,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Flight extends Model
 {
-    public function landed(): self
+    public function landed()
     {
         $this->status = 'landed';
         $this->save();
