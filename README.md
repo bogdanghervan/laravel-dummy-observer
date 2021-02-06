@@ -174,6 +174,20 @@ $flight = new Flight();
 DummyObserver::assertNothingSaved();
 ```
 
+### clear()
+
+Make sure to clear any captured data after every test. A good place to do this from is in the `tearDown` method:
+```PHP
+protected function tearDown(): void
+{
+    DummyObserver::clear();
+}
+```
+
+## Limitations
+
+When working with multiple models, it is not possible to assert a save against the model where the save originated.
+
 ## Support
 
 Has this just helped you in a pinch when you tried to mock the Eloquent save method and nothing was working? Consider leaving me a note and buying me a coffee by clicking the button below.
